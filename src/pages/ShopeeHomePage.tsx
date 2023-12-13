@@ -1,144 +1,28 @@
 import { Carousel } from "@material-tailwind/react";
+import { useState } from "react";
 import { FaAd } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import {
+  iconItem,
+  BestSellerItem,
+  flashSaleItem,
+  recommendedItem,
+  shopeeMallItem,
+  categorie,
+} from "../model/mockData";
 
 export default function ShopeeHomePage() {
-  type IconItem = {
-    img: string;
-    name: string;
-  };
-  const iconItem: IconItem[] = [
-    {
-      name: "ส่งฟรีไม่อั้น",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "แฟชั่น",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "Shopee Mall ลดสูงสุด 90 %",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "อิเล็กทรอนิกส์",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "Hobbies & Lifestyle",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "ลูกค้าใหม่ รับโค้ด หรือของขวัญฟรี",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "ซูเปอร์มาเก็ต",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "เก็บคอยน์แลกโค้ด",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "ช้อปปี้โฮม",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-    {
-      name: "ช้อปปี้ถูกชัวร์",
-      img: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    },
-  ];
+  const [visibleItem, setVisibleItem] = useState(18);
 
-  type Categories = {
-    img: string;
-    name: string;
+  const handleShowMoreItem = () => {
+    if (visibleItem < recommendedItem.length) {
+      setVisibleItem((prev) => prev + 6);
+    }
   };
-  const categorie: Categories[] = [
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-    {
-      img: "https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b",
-      name: "ความงาม",
-    },
-  ];
 
   return (
     <div className="px-80 flex flex-col gap-3 bg-gray-100">
+      {/* Promotion */}
       <section className="flex justify-between h-[30vh] mt-8 gap-2">
         <Carousel className="w-[80vw]" placeholder={""}>
           <img
@@ -177,7 +61,7 @@ export default function ShopeeHomePage() {
           {iconItem.map((item, index) => (
             <div
               key={`${item}-${index}`}
-              className="flex flex-col items-center max-w-[150px] p-5 cursor-pointer"
+              className="flex flex-col items-center max-w-[150px] p-5 cursor-pointer flex-1"
             >
               <div className="border rounded-xl p-3">
                 <FaAd />
@@ -263,16 +147,15 @@ export default function ShopeeHomePage() {
 
       {/* Categories */}
       <section className="bg-white w-full">
-        <p className="p-5">หมวดหมู่</p>
+        <div className="border-b">
+          <p className="p-5">หมวดหมู่</p>
+        </div>
 
         <Carousel placeholder={"test"}>
           <div className="grid grid-cols-10 grid-rows-2">
             {categorie.map((item, index) => (
-              <button className="p-5 bg-white border hover:shadow-md">
-                <img
-                  src={item.img}
-                  alt=""
-                />
+              <button className="p-5 bg-white border border-gray-100 hover:shadow-xl hover:border-gray-300">
+                <img src={item.img} alt="" />
                 <p>{item.name}</p>
               </button>
             ))}
@@ -280,11 +163,8 @@ export default function ShopeeHomePage() {
 
           <div className="grid grid-cols-10 grid-rows-2">
             {categorie.map((item, index) => (
-              <button className="p-5 bg-white border hover:shadow-md">
-                <img
-                  src={item.img}
-                  alt=""
-                />
+              <button className="p-5 bg-white border-gray-100 hover:shadow-xl">
+                <img src={item.img} alt="" />
                 <p>{item.name}</p>
               </button>
             ))}
@@ -292,34 +172,48 @@ export default function ShopeeHomePage() {
         </Carousel>
       </section>
 
-      <section className="bg-white">
+      {/* Flash Sale */}
+      <section className="bg-white p-4">
         <div className="flex justify-between">
-          <p className="text-orange-500 font-bold">FLASH SALE</p>
+          <p className="text-orange-500 font-bold text-xl">FLASH SALE</p>
           <p>ดูทั้งหมด</p>
         </div>
 
         <div className="flex">
-          <Carousel className="w-[80vw]" placeholder={"asdasd"}>
-            <div>
-              <button className="p-5 bg-white w-[5vw] border hover:shadow-md">
-                <img
-                  src="https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b"
-                  alt=""
-                />
-              </button>
+          <Carousel placeholder={"asdasd"}>
+            <div className="grid grid-cols-6">
+              {flashSaleItem.map((item, index) => (
+                <div
+                  key={`${item.id}-${index}`}
+                  className="flex flex-col items-center"
+                >
+                  <img src={item.img} alt="" />
+                  <p className="text-orange-700">&#3647; {item.price}</p>
+                  <div className="bg-primary rounded-xl px-12 text-center text-white">
+                    ขายแล้ว {item.amount}
+                  </div>
+                </div>
+              ))}
             </div>
-            <div>
-              <button className="p-5 bg-white w-[5vw] border hover:shadow-md">
-                <img
-                  src="https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b"
-                  alt=""
-                />
-              </button>
+            <div className="grid grid-cols-6">
+              {flashSaleItem.map((item, index) => (
+                <div
+                  key={`${item.id}-${index}`}
+                  className="flex flex-col items-center"
+                >
+                  <img src={item.img} alt="" />
+                  <p className="text-orange-700">&#3647; {item.price}</p>
+                  <div className="bg-primary rounded-xl px-12 text-center text-white">
+                    <p>ขายแล้ว {item.amount}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </Carousel>
         </div>
       </section>
 
+      {/* Promotioms Detail */}
       <section className="relative">
         <img
           src="https://cf.shopee.co.th/file/sg-50009109-d2ef13a8d13438ad7961a7070e6fffab"
@@ -333,80 +227,119 @@ export default function ShopeeHomePage() {
         </div>
       </section>
 
-      <section className="flex justify-between h-[30vh] mt-8 gap-2">
-        <Carousel className="w-[30vw]" placeholder={"asdasd"}>
-          <img
-            src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-            alt=""
-            className="h-[30vh] w-full object-cover"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-            alt=""
-            className="h-[30vh] w-full object-cover"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-            alt=""
-            className="h-[30vh] w-full object-cover"
-          />
-        </Carousel>
-        <div className="flex flex-col w-[60vw] h-[30vh] gap-2 bg-black">
-          <Carousel placeholder={"asdasd"}>
-            <button className="p-5 bg-white w-[5vw] border hover:shadow-md">
-              <img
-                src="https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b"
-                alt=""
-              />
-            </button>
-            <div>Hello</div>
-          </Carousel>
+      {/* Shopee Mall */}
+      <section className="bg-white">
+        <div className="flex justify-between p-4">
+          <div className="flex gap-3">
+            <p className="text-red-500">SHOPEE MALL</p>
+            <p>ดีลพิเศษแบรนด์ชั้นนำ</p>
+            <p>ของแท้ 100 %</p>
+            <p>คืนเงิน/สินค้าใน 15 วัน</p>
+          </div>
+          <p>ดูเพิ่มเติม</p>
+        </div>
+
+        <div className="flex">
+          <div className="">
+            <img
+              src="https://cf.shopee.co.th/file/th-50009109-79996e4f0871b6eac7c5833274be2117"
+              alt=""
+              className="h-[50vh] w-full object-contain"
+            />
+          </div>
+
+          <div className="flex flex-1 gap-2">
+            <Carousel placeholder={"asdasd"}>
+              <div className="grid grid-cols-4 grid-rows-2">
+                {shopeeMallItem.map((item, index) => (
+                  <div key={item.id}>
+                    <div className="text-center">
+                      <img src={item.img} alt="" />
+                      <p className="text-red-500 font-semibold">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-4 grid-rows-2">
+                {shopeeMallItem.map((item, index) => (
+                  <div key={item.id}>
+                    <div className="text-center">
+                      <img src={item.img} alt="" />
+                      <p className="text-red-500 font-semibold">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Carousel>
+          </div>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="flex justify-between p-5">
+        <div className="flex justify-between p-5 border-b">
           <p>ขายดีประจำสัปดาห์</p>
           <p>ดูทั้งหมด</p>
         </div>
 
         <Carousel placeholder={"asdasd"}>
-          <button className="p-5 bg-white w-[5vw] border hover:shadow-md">
-            <img
-              src="https://down-th.img.susercontent.com/file/th-11134207-7r990-lp0n5y8hyv0e8b"
-              alt=""
-            />
-          </button>
-          <div>Hello</div>
+          <div className="grid grid-cols-6">
+            {BestSellerItem.map((item) => (
+              <div key={item.id}>
+                <button className="p-5 bg-white  hover:shadow-md">
+                  <img src={item.img} alt="" />
+                  <p className="p-2 bg-gray-500 opacity-50 text-white">
+                    ยอดขายต่อเดือน {item.amount}
+                  </p>
+                  <p className="text-start py-2 font-semibold">{item.type}</p>
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-6">
+            {BestSellerItem.map((item) => (
+              <div key={item.id}>
+                <button className="p-5 bg-white  hover:shadow-md">
+                  <img src={item.img} alt="" />
+                  <p className="p-2 bg-gray-500 opacity-50 text-white">
+                    ยอดขายต่อเดือน {item.amount}
+                  </p>
+                  <p className="text-start py-2 font-semibold">{item.type}</p>
+                </button>
+              </div>
+            ))}
+          </div>
         </Carousel>
       </section>
 
-      <section className="bg-white">
+      <section>
         <div className="border-b-4 border-orange-600">
-          <p className="text-center p-5">สินค้าแนะนำประจำวัน</p>
+          <p className="text-center p-5 bg-white">สินค้าแนะนำประจำวัน</p>
         </div>
-        <div className="grid grid-cols-6">
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
-          <p>1</p>
+        <div className="grid grid-cols-6 grid-rows-3 gap-3  my-3">
+          {recommendedItem.slice(0, visibleItem).map((item) => (
+            <div key={item.id} className="bg-white p-2 hover:border border-orange-700">
+              <img src={item.img} alt="" />
+              <p>{item.detail}</p>
+              <div className="flex justify-between">
+                <p>{item.price}</p>
+                <p>ขายแล้ว {item.amount}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center">
+          {visibleItem < recommendedItem.length ? (
+            <button className="p-2 bg-white mt-3" onClick={handleShowMoreItem}>
+              ดูเพิ่มเติม
+            </button>
+          ) : undefined}
         </div>
       </section>
-
-      <footer className="bg-gray-300 flex">
-        <div className="flex-1">1</div>
-        <div className="flex-1">2</div>
-        <div className="flex-1">3</div>
-        <div className="flex-1">4</div>
-        <div className="flex-1">5</div>
-      </footer>
     </div>
   );
 }
