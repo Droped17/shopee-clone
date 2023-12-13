@@ -65,7 +65,7 @@ export default function Header() {
               placeholder="ลูกค้าใหม่ รับเลย โค้ดส่วนลด หรือโค้ดส่งฟรี*"
             />
             <button className="border-2 border-white min-w-[70px] flex justify-center items-center">
-              <FaSearch />
+              <FaSearch color="white"/>
             </button>
           </div>
           <div className="text-white flex gap-4 justify-between p-2">
@@ -73,7 +73,7 @@ export default function Header() {
           </div>
         </div>
         <div className="min-w-[150px] h-[80px] flex items-center justify-center">
-          <FaShoppingCart/>
+          <FaShoppingCart size={30} color="white"/>
         </div>
       </section>
     </div>
