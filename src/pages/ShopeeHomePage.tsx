@@ -1,6 +1,6 @@
 import { Carousel } from "@material-tailwind/react";
 import { useState } from "react";
-import { FaAd } from "react-icons/fa";
+import { FaAd  } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {
   iconItem,

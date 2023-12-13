@@ -35,7 +35,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="bg-primary px-80">
+    <div className="bg-primary  px-80">
       <section className="flex justify-between">
         <div className="flex gap-4 p-2">
           {names.map((item, index) => (
