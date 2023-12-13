@@ -1,7 +1,8 @@
+import React from "react";
 import Route from "./router/route";
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <Route/>
   );
